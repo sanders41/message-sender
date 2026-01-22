@@ -50,3 +50,8 @@ jobs:
         run: uv sync --frozen
       - name: Test with pytest
         run: uv run pytest
+      - name: Upload coverage
+        uses: codecov/codecov-action@v5.5.2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
