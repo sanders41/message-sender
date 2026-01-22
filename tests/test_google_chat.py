@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from unittest.mock import AsyncMock, MagicMock, patch
 
 from message_sender.google_chat import AsyncGoogleChatClient, GoogleChatClient
