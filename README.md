@@ -39,6 +39,29 @@ async with AsyncGoogleChatClient("https://your-webhook-url.com") as client:
     await client.send_message("Some test message")
 ```
 
+### Discord
+
+Send messages to Discord via webhooks. For setup instructions see
+[https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
+
+#### Sync Client
+
+```py
+from message_sender.discord import DiscordClient
+
+with DiscordClient("https://your-webhook-url.com") as client:
+    client.send_message("Some test message")
+```
+
+#### Async Client
+
+```py
+from message_sender.discord import AsyncDiscordClient
+
+async with AsyncDiscordClient("https://your-webhook-url.com") as client:
+    await client.send_message("Some test message")
+```
+
 ### Proton Email
 
 Send emails through Proton Mail's SMTP service. For setup instructions see
