@@ -64,7 +64,8 @@ class AsyncGoogleChatClient(_GoogleChatClientBase):
             >>>     await client.send_message("Some test message")
         """
 
-        await self._client.post(self.webhook_url, json={"text": message})
+        result = await self._client.post(self.webhook_url, json={"text": message})
+        result.raise_for_status()
 
 
 class GoogleChatClient(_GoogleChatClientBase):
@@ -118,4 +119,5 @@ class GoogleChatClient(_GoogleChatClientBase):
             >>>     client.send_message("Some test message")
         """
 
-        self._client.post(self.webhook_url, json={"text": message})
+        result = self._client.post(self.webhook_url, json={"text": message})
+        result.raise_for_status()

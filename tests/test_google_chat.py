@@ -30,7 +30,8 @@ def test_context_manager() -> None:
 
 async def test_async_send_message() -> None:
     mock_client = MagicMock()
-    mock_client.post = AsyncMock()
+    mock_response = MagicMock()
+    mock_client.post = AsyncMock(return_value=mock_response)
     mock_client.aclose = AsyncMock()
 
     with patch("message_sender.google_chat.AsyncClient", return_value=mock_client):
@@ -47,7 +48,8 @@ async def test_async_send_message() -> None:
 
 async def test_async_context_manager() -> None:
     mock_client = MagicMock()
-    mock_client.post = AsyncMock()
+    mock_response = MagicMock()
+    mock_client.post = AsyncMock(return_value=mock_response)
     mock_client.aclose = AsyncMock()
 
     with patch("message_sender.google_chat.AsyncClient", return_value=mock_client):
