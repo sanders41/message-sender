@@ -62,6 +62,50 @@ async with AsyncDiscordClient("https://your-webhook-url.com") as client:
     await client.send_message("Some test message")
 ```
 
+### SMTP Email
+
+Send emails through any SMTP server. Port 465 uses implicit TLS, other ports use STARTTLS.
+
+#### Sync Client
+
+```py
+from message_sender.email.smtp import SMTPClient
+
+client = SMTPClient(
+    smtp_server="smtp.example.com",
+    smtp_port=587,
+    email_from="sender@example.com",
+    user_name="your-username",
+    password="your-password",
+)
+client.send_email(
+    message="Your message body",
+    email_to="someone@email.com",
+    subject="Example",
+    html_content="<p>Your HTML message body</p>",  # optional
+)
+```
+
+#### Async Client
+
+```py
+from message_sender.email.smtp import AsyncSMTPClient
+
+client = AsyncSMTPClient(
+    smtp_server="smtp.example.com",
+    smtp_port=587,
+    email_from="sender@example.com",
+    user_name="your-username",
+    password="your-password",
+)
+await client.send_email(
+    message="Your message body",
+    email_to="someone@email.com",
+    subject="Example",
+    html_content="<p>Your HTML message body</p>",  # optional
+)
+```
+
 ### Proton Email
 
 Send emails through Proton Mail's SMTP service. For setup instructions see
