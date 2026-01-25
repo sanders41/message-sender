@@ -11,7 +11,7 @@ authors = [
 license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.11"
-keywords = ["messages", "async", "email", "google-chat"]
+keywords = ["async","chat", "email", "messages", "smtp"]
 classifiers=[
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
