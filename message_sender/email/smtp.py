@@ -12,8 +12,8 @@ class _SMTPBase:
         smtp_server: str,
         smtp_port: int,
         email_from: str,
-        user_name: str,
-        password: str,
+        user_name: str | None = None,
+        password: str | None = None,
     ) -> None:
         self.smtp_server = smtp_server
         self.smtp_port = smtp_port
@@ -37,8 +37,8 @@ class AsyncSMTPClient(_SMTPBase):
         smtp_port: The SMTP port for the email provider. Port 465 uses implicit TLS,
             other ports use STARTTLS.
         email_from: The email address for sending emails
-        user_name: The user name to use for sending SMTP emails
-        password: The password to use for sending SMTP emails
+        user_name: The user name to use for sending SMTP emails. Defaults to None
+        password: The password to use for sending SMTP emails. Defaults to None
     """
 
     def __init__(
@@ -46,8 +46,8 @@ class AsyncSMTPClient(_SMTPBase):
         smtp_server: str,
         smtp_port: int,
         email_from: str,
-        user_name: str,
-        password: str,
+        user_name: str | None = None,
+        password: str | None = None,
     ) -> None:
         super().__init__(
             smtp_server=smtp_server,
@@ -129,8 +129,8 @@ class SMTPClient(_SMTPBase):
         smtp_server: str,
         smtp_port: int,
         email_from: str,
-        user_name: str,
-        password: str,
+        user_name: str | None = None,
+        password: str | None = None,
     ) -> None:
         super().__init__(
             smtp_server=smtp_server,
@@ -186,10 +186,12 @@ class SMTPClient(_SMTPBase):
 
         if self._use_implicit_tls():
             with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port) as smtp:
-                smtp.login(self.user_name, self.password)
+                if self.user_name and self.password:
+                    smtp.login(self.user_name, self.password)
                 smtp.send_message(msg)
         else:
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as smtp:
                 smtp.starttls()
-                smtp.login(self.user_name, self.password)
+                if self.user_name and self.password:
+                    smtp.login(self.user_name, self.password)
                 smtp.send_message(msg)
