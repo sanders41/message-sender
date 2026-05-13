@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Self
 
-from httpx import AsyncClient, Client
+from httpx2 import AsyncClient, Client
 
 if TYPE_CHECKING:
     from types import TracebackType
