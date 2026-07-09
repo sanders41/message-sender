@@ -31,7 +31,7 @@ class AsyncDiscordClient(_DiscordClientBase):
     async def __aexit__(
         self,
         et: type[BaseException] | None,
-        ev: type[BaseException] | None,
+        ev: BaseException | None,
         traceback: TracebackType | None,
     ) -> None:
         await self.close()
@@ -85,7 +85,7 @@ class DiscordClient(_DiscordClientBase):
     def __exit__(
         self,
         et: type[BaseException] | None,
-        ev: type[BaseException] | None,
+        ev: BaseException | None,
         traceback: TracebackType | None,
     ) -> None:
         self.close()
