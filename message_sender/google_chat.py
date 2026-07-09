@@ -32,7 +32,7 @@ class AsyncGoogleChatClient(_GoogleChatClientBase):
     async def __aexit__(
         self,
         et: type[BaseException] | None,
-        ev: type[BaseException] | None,
+        ev: BaseException | None,
         traceback: TracebackType | None,
     ) -> None:
         await self.close()
@@ -87,7 +87,7 @@ class GoogleChatClient(_GoogleChatClientBase):
     def __exit__(
         self,
         et: type[BaseException] | None,
-        ev: type[BaseException] | None,
+        ev: BaseException | None,
         traceback: TracebackType | None,
     ) -> None:
         self.close()

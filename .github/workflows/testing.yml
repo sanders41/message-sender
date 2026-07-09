@@ -27,8 +27,8 @@ jobs:
         run: uv run ruff format message_sender tests --check
       - name: Lint with ruff
         run: uv run ruff check .
-      - name: mypy check
-        run: uv run mypy .
+      - name: pyrefly check
+        run: uv run pyrefly check
   testing:
     strategy:
       fail-fast: false
