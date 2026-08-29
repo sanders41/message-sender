@@ -115,9 +115,7 @@ Send emails through Proton Mail's SMTP service. For setup instructions see
 ```py
 from message_sender.email.proton import ProtonEmailClient
 
-client = ProtonEmailClient(
-    email_address="smtp_setup_email@proton.me", smtp_token="your-token"
-)
+client = ProtonEmailClient(email_address="smtp_setup_email@proton.me", smtp_token="your-token")
 client.send_email(
     message="Your message body",
     email_to="someone@email.com",
@@ -131,9 +129,7 @@ client.send_email(
 ```py
 from message_sender.email.proton import AsyncProtonEmailClient
 
-client = AsyncProtonEmailClient(
-    email_address="smtp_setup_email@proton.me", smtp_token="your-token"
-)
+client = AsyncProtonEmailClient(email_address="smtp_setup_email@proton.me", smtp_token="your-token")
 await client.send_email(
     message="Your message body",
     email_to="someone@email.com",
