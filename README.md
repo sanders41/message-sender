@@ -137,3 +137,37 @@ await client.send_email(
     html_content="<p>Your HTML message body</p>",  # optional
 )
 ```
+
+### Gmail Email
+
+Send emails through Gmail's SMTP service. Requires a Google App Password (not your
+regular account password), which can be generated from your Google Account settings
+once 2-Step Verification is enabled.
+
+#### Sync Client
+
+```py
+from message_sender.email.gmail import GmailClient
+
+client = GmailClient(email_address="sender@gmail.com", app_password="your-app-password")
+client.send_email(
+    message="Your message body",
+    email_to="someone@email.com",
+    subject="Example",
+    html_content="<p>Your HTML message body</p>",  # optional
+)
+```
+
+#### Async Client
+
+```py
+from message_sender.email.gmail import AsyncGmailClient
+
+client = AsyncGmailClient(email_address="sender@gmail.com", app_password="your-app-password")
+await client.send_email(
+    message="Your message body",
+    email_to="someone@email.com",
+    subject="Example",
+    html_content="<p>Your HTML message body</p>",  # optional
+)
+```

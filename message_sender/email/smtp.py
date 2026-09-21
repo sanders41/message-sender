@@ -68,7 +68,7 @@ class AsyncSMTPClient(_SMTPBase):
         """Send the email through the SMTP server.
 
         Args:
-            message: The message body. If not html_content is provided or the receiving client does
+            message: The message body. If no html_content is provided or the receiving client does
                 not support HTML this is used.
             email_to: The email address where the email should be sent
             subject: The subject of the email
@@ -151,7 +151,7 @@ class SMTPClient(_SMTPBase):
         """Send the email through the SMTP server.
 
         Args:
-            message: The message body. If not html_content is provided or the receiving client does
+            message: The message body. If no html_content is provided or the receiving client does
                 not support HTML this is used.
             email_to: The email address where the email should be sent
             subject: The subject of the email
