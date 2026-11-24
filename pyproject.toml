@@ -33,7 +33,7 @@ dependencies = [
 [dependency-groups]
 dev = [
   "prek==0.5.11",
-  "pyrefly==1.4.1",
+  "pyrefly==1.5.0",
   "pytest==9.2.0",
   "pytest-asyncio==1.5.0",
   "pytest-cov==7.1.0",
